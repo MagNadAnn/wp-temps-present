@@ -1,0 +1,712 @@
+/*
+Theme Name: Temps Présent
+Theme URI: http://www.temps-present.fr/
+Author: Margot Nadot
+Author URI: http://margotnadot.com
+Description: Le thème du site des éditions Temps présent
+Version: 1.0
+Tags: 
+*/
+@media (max-width: 728px) {
+	#wpadminbar {
+	    display: none;
+	}
+}
+
+
+/*
+=======================================================
+=======================================================
+	BASE
+=======================================================
+=======================================================
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 1023px) {
+	body {
+		position: absolute;
+		width: 100%;
+		overflow-x: hidden;
+	}
+}
+
+/*
+=======================================================
+=======================================================
+	LAYOUT
+=======================================================
+=======================================================
+*/
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	GENERAL
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.l-site {
+	position: relative;
+}
+
+@media (min-width: 1024px) {
+	.l-nav,
+	.l-site-content {
+		box-sizing: border-box;
+	}
+
+	.l-nav { padding: 10px 40px; }
+	.l-site-content { padding: 10px 20px; }
+}
+
+@media (min-width: 1200px) and (min-height: 600px) {
+	.l-site {
+		width: 1200px;
+		margin: 100px auto;
+	}
+}
+
+@media (min-width: 1024px) {
+	.l-nav {
+		position: absolute;
+		width: 320px;
+		top: 0;
+		left: 0;
+		box-sizing: border-box;
+	}
+}
+
+@media (min-width: 1024px) {
+	.l-site-content {
+		position: relative;
+		width: calc(100% - 320px);
+		left: 320px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.l-nav-essential {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+@media (min-width: 1024px) {
+	.l-nav-panel-trigger {
+		display: none;
+	}
+}
+
+@media (max-width: 1023px) {
+	.l-nav-panel-trigger {
+		display: block;
+	}
+}
+
+@media (max-width: 1023px) {
+	.l-nav-exhaustive {
+		position: fixed;
+		height: 100vh;
+		max-width: 320px;
+		top: 0;
+		right: -100vw;
+		z-index: 40;
+		transition: right 0.5s;
+	}
+
+	.l-nav-exhaustive.active {
+		right: 0;
+	}
+}
+
+@media (max-width: 1023px) {
+	.l-nav-exhaustive {
+	    overflow-y: auto;
+	}
+}
+
+@media (min-width: 500px) and (max-width: 1023px) {
+	.l-nav-exhaustive { width: 60vw; }
+}
+
+@media (max-width: 499px) {
+	.l-nav-exhaustive { width: 75vw; }
+}
+
+.l-article-contextual,
+.article-header,
+.article-content,
+.article-apercu__list {
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	PAGE-CONTENT
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.l-page-content__sheet {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.l-article-core {}
+
+.l-article-contextual {
+	max-width: 320px;
+}
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	HOME
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.l-home-grid {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@media (min-width: 728px) {
+
+	.l-home-col-1,
+	.l-home-col-3 { width: calc(100% * (1 /  3)); }
+	.l-home-col-2 { width: calc(100% * (1 /  3)); }
+
+}
+
+@media (min-width: 500px) and (max-width: 728px) {
+
+	
+	.l-home-col-1 { width: calc(100% * (3 /  5)); }
+	.l-home-col-2 { width: calc(100% * (2 /  5)); }
+	.l-home-col-3 { width: calc(100% * (2 /  2)); }
+
+}
+
+/*
+=======================================================
+=======================================================
+	BASE
+=======================================================
+=======================================================
+*/
+
+p > a {
+	color: black;
+	opacity: 0.7;
+	transition: opacity 0.1s;
+}
+
+p > a:focus, p > a:hover { opacity: 0.85; }
+p > a:active { opacity: 1; }
+
+
+/*
+=======================================================
+=======================================================
+	MODULES
+=======================================================
+=======================================================
+*/
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	SITE NAV
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.site-nav {
+		font-size: 1.1em;
+	}
+
+@media (min-width: 1024px) {
+	.site-nav {
+		border-right: 1px solid grey;
+	}
+}
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	SITE HEADER
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+/*
+--------------------------
+	Site logo
+--------------------------
+*/
+
+.site-logo {
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 1em;
+    font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+	.site-logo { text-align: right; }
+}
+
+.site-logo > a {
+	color: black;
+	text-decoration: none;
+	opacity: 0.7em;
+}
+
+.site-logo > a:focus, .site-logo > a:hover {
+	opacity: 0.85em;
+}
+
+.site-logo > a:hover {
+	opacity: 1em;
+}
+
+/*
+--------------------------
+	Site menu trigger
+--------------------------
+*/
+
+.site-menu-trigger {
+    border-radius: 50%;
+    font-size: 1.75em;
+    line-height: 1em;
+    width: 1.5em;
+    height: 1.5em;
+    box-sizing: border-box;
+    padding: 0 0 5px;
+}
+
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	SITE MENU
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.site-menu,
+.menu,
+#lct-widget-Collections {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+@media (min-width: 1024px) {
+	.site-menu {
+		text-align: right;
+	}
+}
+
+@media (max-width: 1023px) {
+	.site-menu {
+	    background-color: white;
+	    padding: 20px;
+	    box-sizing: border-box;
+	    box-shadow: 0 0 5px grey;
+	}
+}
+
+@media (max-width: 1023px) {
+	.menu-item,
+	.cat-item {
+	    margin: 0.5em 0;
+	}
+}
+
+.menu-item > a,
+.cat-item > a,
+.textwidget a {
+    text-decoration: none;
+    opacity: 0.7;
+    color: black;
+}
+
+.menu-item > a:focus, .menu-item > a:hover,
+.cat-item > a:focus, .cat-item > a:hover {
+	opacity: 0.85;
+	text-decoration: underline;
+}
+
+.menu-item > a:active,
+.cat-item > a:active {
+	opacity: 1;
+}
+
+/*
+--------------------------
+	Search form
+--------------------------
+*/
+
+.site-menu > .search-form-wrap,
+.widget.widget_text {
+	margin: 10px 0;
+}
+
+@media (min-width: 1024px) {
+	.site-header {
+		margin: 10px 0;
+	}
+}
+
+@media (max-width: 1023px) {
+	.site-header {
+		margin: 10px;
+	}
+}
+
+
+/*
+--------------------------
+	MAIN MENU
+--------------------------
+*/
+
+.menu {
+	padding-left: 0;
+}
+
+.menu-item {
+	line-height: 1.4em;
+}
+
+/*
+--------------------------
+	COLLECTIONS MENU
+--------------------------
+*/
+
+.menu-section {
+	margin: 0;
+	opacity: 0.7;
+}
+
+#lct-widget-Collections {
+    margin: 2px;
+    opacity: 0.6;
+}
+
+@media (min-width: 1024px) {
+	#lct-widget-Collections {
+	    padding: 0 5px 0 0;
+	    border-right: 1px solid grey;
+	}
+}
+
+@media (max-width: 1023px) {
+	#lct-widget-Collections {
+	    padding: 0 0 0 5px;
+	    border-left: 1px solid grey;
+	}
+}
+
+#lct-widget-Collections > .cat-item {
+	line-height: 1.2em;
+}
+
+#lct-widget-Collections > .cat-item > a {
+	font-size: 0.9em;
+}
+
+/*
+--------------------------
+	COLLECTIONS MENU
+--------------------------
+*/
+
+.textwidget {
+	font-size: 0.6em;
+	opacity: 0.6;
+}
+
+@media (min-width: 1024px) {
+	.textwidget {
+		padding-left: 40%;
+	}
+}
+
+.textwidget a {
+	text-decoration: underline;
+}
+
+
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	WIDGET
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.our-widget {
+	margin: 20px;
+}
+
+.widget-title {
+	margin: 0 0 10px;
+	font-size: 2em;
+	line-height: 1em;
+}
+
+.book-selection__list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@media (min-width: 500px) { .book-selection__list { margin: -5px; } }
+@media (max-width: 499px) { .book-selection__list { margin: -10px; } }
+
+.book-selection__item {
+	width: calc(100% / 2);
+	box-sizing: border-box;
+}
+
+@media (min-width: 500px) { .book-selection__item { padding: 5px; } }
+@media (max-width: 499px) { .book-selection__item { padding: 10px; } }
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	SHADOWER
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.shadower {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 30;
+
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s;
+
+	background-color: white;
+}
+
+.shadower.active {
+	opacity: 0.8;
+	pointer-events: auto;
+}
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	ARTICLE
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.article-title {
+	font-size: 3em;
+	margin: 0;
+}
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	ARTICLE APERCU
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.article-apercu__img {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 500px) {
+	.article-apercu__img {
+    	width: 30%;
+	}
+}
+
+
+.article-apercu__text {
+	margin: 10px;
+}
+
+.article-apercu__title {
+	font-size: 1.1em;
+	margin: 0.25em 0;
+}
+
+.article-apercu__title > a {
+	text-decoration: none;
+	color: grey;
+}
+
+.article-apercu__title > a:focus, .article-apercu__title > a:hover {
+	text-decoration: underline;
+}
+
+.article-apercu__text > p,
+.article-apercu__excerpt > p {
+	margin: 0
+}
+
+/*
+--------------------------
+	ARTICLE APERCU_large
+--------------------------
+*/
+
+@media (min-width: 500px) {
+	.article-apercu_large {
+	    display: flex;
+	    align-items: center;
+	}
+}
+
+.article-apercu_large:not(:last-child) {
+	border-bottom: 1px solid grey;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+
+}
+
+.article-apercu_large > .article-apercu__title {
+	font-size: 1.5em;
+}
+
+/*
+--------------------------
+	ARTICLE APERCU_basics
+--------------------------
+*/
+
+.article-apercu_basics {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.article-apercu_basics > a:first-child {
+	margin-right: 10px;
+}
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	BTN
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.btn {
+	padding: 2px 10px;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    opacity: 0.7;
+    background-color: rgba(255,255,255,0.5);
+}
+
+
+
+.btn.block {
+	display: block;
+    width: 100%;
+    padding: 10px;
+	text-align: center;
+}
+
+.btn:focus, .btn:hover { opacity: 0.85; }
+.btn:active { opacity: 1; }
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	IMAGES
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+.thumbnail { display: block; }
+
+.img-object {
+	width: 100%;
+}
+
+.book {
+	box-sizing: border-box;
+	border: 1px solid;
+	border-color: grey;
+	padding: 5px;
+	transition: border-color 0.5s;
+}
+
+.book:focus, .book:hover {
+	border-color: black;
+}
+
+/*
+-------------------------------------------------------
+-------------------------------------------------------
+	ARTICLE-HEADER
+-------------------------------------------------------
+-------------------------------------------------------
+*/
+
+
+
+/*
+=======================================================
+=======================================================
+	STYLE
+=======================================================
+=======================================================
+*/
+
+@font-face {
+    font-family: 'droid_serifregular';
+    src: url('webfonts/droidserif_regular_macroman/DroidSerif-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'droid_serifregular', Times, serif;
+	font-size: 1em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Fira Sans Condensed', Arial, serif;
+	font-weight: 600;
+}
+
+.l-nav-exhaustive,
+a.btn,
+a.more {
+	font-family: 'Fira Sans Condensed', Arial, serif;
+	font-weight: 400;
+}
+
+.site-logo {
+	font-family: 'droid_serifregular', Times, serif;
+}
