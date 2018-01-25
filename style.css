@@ -522,6 +522,10 @@ p > a:active { opacity: 1; }
 -------------------------------------------------------
 */
 
+.nav-taxonomies {
+	margin: 0;
+}
+
 .article-title {
 	font-size: 3em;
 	margin: 0;
