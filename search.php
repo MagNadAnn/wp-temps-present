@@ -21,7 +21,7 @@ get_sidebar(); ?>
 			<h2 class="search-result-description"><?php printf( __( 'Résulats pour : %s' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
 		<!-- s'il y a pas de résultats -->
 			<?php else : ?>
-			<p class="search-result-description"><?php _e( 'Aucun résultat' ); ?></p>
+			<h2 class="search-result-description"><?php _e( 'Aucun résultat' ); ?></h2>
 			<?php endif; ?>
 
 		</section>
@@ -30,22 +30,22 @@ get_sidebar(); ?>
 
 	<?php if ( have_posts() ) : ?>
 <!-- s'il y a des résultats -->
-	<section class="search-results extrait__list">
-		
+	<section class="search-results article-apercu__list">
+
 	<?php get_template_part('loop'); ?>
 
 	</section>
 	<?php endif; ?>
 
-	
-	<section class="l-grid search-suggestions">
+
+	<section class="search-suggestions">
 
 	<?php $terms = get_terms( 'thematique', 'hide_empty=0' ); ?>
 	<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
 <!-- On affiche les THEMATIQUES s'il y en a -->
-		<section class="l-grid-item_1-3">
-			<h2>Thématiques</h2>
-			<ul>
+		<section class="search-suggestion__item">
+			<h2>Par thématiques</h2>
+			<ul class="search-suggestions__taxonomy">
 			<?php
 			$term_list = '';
 			foreach ( $terms as $term ) {
@@ -60,9 +60,9 @@ get_sidebar(); ?>
 	<?php $terms = get_terms( 'Auteurs', 'hide_empty=0' ); ?>
 	<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
 <!-- On affiche les AUTEURS s'il y en a -->
-		<section class="l-grid-item_1-3">
-			<h2>Auteurs</h2>
-			<ul>
+		<section class="search-suggestion__item">
+			<h2>Par auteurs</h2>
+			<ul class="search-suggestions__taxonomy">
 			<?php
 			$term_list = '';
 			foreach ( $terms as $term ) {
@@ -74,7 +74,7 @@ get_sidebar(); ?>
 		</section>
 	<?php endif; ?>
 
-	<?php 
+	<?php
 	// the query
 	$query_args = array(
 		'post_type' => 'ouvrage',
@@ -85,9 +85,9 @@ get_sidebar(); ?>
 	<?php if ( $the_query->have_posts() ) : ?>
 <!-- On affiche les OUVRAGES s'il y en a -->
 
-		<section class="l-grid-item_1-3">
-			<h2>Ouvrages</h2>
-			<ul>
+		<section class="search-suggestion__item">
+			<h2>Par ouvrages</h2>
+			<ul class="search-suggestions__taxonomy">
 			<!-- the loop -->
 			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 				<li><a href=""><?php the_title(); ?></a></li>
@@ -99,7 +99,7 @@ get_sidebar(); ?>
 		<?php wp_reset_postdata(); ?>
 
 	<?php endif; ?>
-		
+
 	</section>
 
 <?php get_footer(); ?>

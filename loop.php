@@ -10,11 +10,23 @@
 	$post_categories = implode(', ', $cats);
 
 ?>
+	<?php $ouvrage_lie = get_field('ouvrage_lie'); ?>
 
 		<article class="article-apercu_large">
 			<div class="article-apercu__img">
 				<a href="<?php the_permalink() ?>">
-					<img class="img-object thumbnail book" src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
+
+					<!--  si c'est un extrait, on affiche le thumbnail de l'ouvrage lié -->
+					<?php if( $ouvrage_lie ): ?>
+						<?php foreach( $ouvrage_lie as $ouvrage_lie ): ?>
+							<img class="img-object thumbnail book" src="<?php echo get_the_post_thumbnail_url( $ouvrage_lie->ID , 'medium' ); ?>" alt="<?php the_title(); ?>">
+						<?php endforeach; ?>
+
+					<!--  sinon on affiche le thumbnail du post -->
+					<?php elseif( has_post_thumbnail() ): ?>
+						<img class="img-object thumbnail book" src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>">
+					<?php endif; ?>
+
 				</a>
 			</div>
 			<div class="article-apercu__text">
